@@ -28,7 +28,7 @@ router.post('/login', (req, res, next) => {
     .then(([user]) => {
       if (user && bcrypt.compareSync(password, user.password)) {
         //HERE IS WHERE WE WOULD CREATE TOKEN AND APPEND IT TO THE RESPONSE
-        const token = tokenBuilder(user)
+        const token = tokenBuilder(user) // OK :)
         res.status(200).json({
           message: `Welcome back ${user.username}!`, token
         });
